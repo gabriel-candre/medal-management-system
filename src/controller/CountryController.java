@@ -9,6 +9,8 @@ public class CountryController {
 
     private List<Country> countries = new ArrayList<>();
 
+    public CountryController () {}
+
     public void addCountry(Country c) {
         countries.add(c);
     }
