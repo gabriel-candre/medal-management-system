@@ -1,9 +1,12 @@
 package controller;
 
-import entities.Country;
-import controller.CountryController;
+import entities.*;
+import controller.*;
+
+import java.util.Scanner;
 
 public class Menu {
+    Scanner sc = new Scanner(System.in);
 
     CountryController cc = new CountryController();
 
@@ -19,6 +22,15 @@ public class Menu {
             switch (option) {
                 case 1:
 
+                    System.out.print("Country id: ");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Country name: ");
+                    String name = sc.nextLine();
+
+                    Country c = new Country(id, name);
+                    cc.addCountry(c);
                     break;
                 default:
                     break;

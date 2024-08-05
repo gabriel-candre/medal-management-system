@@ -15,6 +15,8 @@ public class Program {
 
         menu.mainMenu();
         int option = sc.nextInt();
+        System.out.println("-----");
+        menu.management(option);
 
 
         sc.close();
