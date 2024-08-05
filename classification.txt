@@ -1,0 +1,7 @@
+Create rankingToFile() -->
+ - pass countries (attr. separated for semicolon)
+Create rankingFromFile()
+
+Create loadRanking()-->
+ - get countries from rankingFromFile() and format like
+a table
