@@ -16,6 +16,9 @@ public class Country {
     public Country(int idCountry, String name) {
         this.name = name;
         this.idCountry = idCountry;
+        this.goldMedals = 0;
+        this.silverMedals = 0;
+        this.bronzeMedals = 0;
     }
 
     public Country(int rankingPosition, String name, int goldMedals, int silverMedals, int bronzeMedals) {
@@ -26,7 +29,7 @@ public class Country {
         this.bronzeMedals = bronzeMedals;
     }
 
-    public Country(String name, Integer idCountry, Integer goldMedal, Integer silverMedals, Integer bronzeMedals, Integer rankingPosition) {
+    public Country(String name, int idCountry, int goldMedal, int silverMedals, int bronzeMedals, int rankingPosition) {
         this.name = name;
         this.idCountry = idCountry;
         this.goldMedals = goldMedal;

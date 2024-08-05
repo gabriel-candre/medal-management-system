@@ -1,0 +1,2 @@
+Brasil;0;0;0;null
+EUA;0;0;0;null

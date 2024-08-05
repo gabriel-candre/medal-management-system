@@ -35,6 +35,10 @@ public class Menu {
                 default:
                     break;
             }
+            System.out.println("-----");
+            mainMenu();
+            option = sc.nextInt();
+            System.out.println("-----");
         }
     }
 

@@ -15,6 +15,7 @@ public class CountryController {
 
     public void addCountry(Country c) {
         countries.add(c);
+        saveCountry();
     }
 
     private void saveCountry() {
