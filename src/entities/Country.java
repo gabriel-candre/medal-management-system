@@ -19,9 +19,11 @@ public class Country {
         this.goldMedals = 0;
         this.silverMedals = 0;
         this.bronzeMedals = 0;
+        this.rankingPosition = 0;
     }
 
-    public Country(int rankingPosition, String name, int goldMedals, int silverMedals, int bronzeMedals) {
+    public Country(int id,int rankingPosition, String name, int goldMedals, int silverMedals, int bronzeMedals) {
+        this.idCountry = id;
         this.rankingPosition = rankingPosition;
         this.name = name;
         this.goldMedals = goldMedals;
@@ -86,22 +88,35 @@ public class Country {
         this.rankingPosition = rankingPosition;
     }
 
+    public void addGoldMedal(int qty) {
+        this.goldMedals += qty;
+    }
+
+    public void addSilverMedal(int qty) {
+        this.silverMedals += qty;
+    }
+
+    public void addBronzeMedal(int qty) {
+        this.bronzeMedals += qty;
+    }
+
     public String toFile() {
-        return getName() + ";" + getGoldMedals() + ";" + getSilverMedals() + ";" + getBronzeMedals() + ";" + getRankingPosition();
+        return getIdCountry() + ";" + getName() + ";" + getGoldMedals() + ";" + getSilverMedals() + ";" + getBronzeMedals() + ";" + getRankingPosition();
     }
 
     public static Country fromFile(String fileString) {
         String [] fields = fileString.split(";");
-        String name = fields[0];
-        int goldMedals = Integer.parseInt(fields[1]);
-        int silverMedals = Integer.parseInt(fields[2]);
-        int bronzeMedals = Integer.parseInt(fields[3]);
-        int position = Integer.parseInt(fields[4]);
-        return new Country(position, name, goldMedals, silverMedals, bronzeMedals);
+        int id = Integer.parseInt(fields[0]);
+        String name = fields[1];
+        int goldMedals = Integer.parseInt(fields[2]);
+        int silverMedals = Integer.parseInt(fields[3]);
+        int bronzeMedals = Integer.parseInt(fields[4]);
+        int position = Integer.parseInt(fields[5]);
+        return new Country(id, position, name, goldMedals, silverMedals, bronzeMedals);
     }
 
     @Override
     public String toString() {
-        return getName() + " | " + getGoldMedals() + " |" + getSilverMedals() + " | " + getBronzeMedals();
+        return getName() + " | " + getGoldMedals() + " | " + getSilverMedals() + " | " + getBronzeMedals();
     }
 }
