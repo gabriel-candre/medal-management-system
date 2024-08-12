@@ -26,7 +26,7 @@ public class Country {
 
     public Country(int id,int totalMedals, String name, int goldMedals, int silverMedals, int bronzeMedals) {
         this.idCountry = id;
-        this.totalMedals = this.goldMedals + this.silverMedals + this.bronzeMedals;
+        this.totalMedals = 0;
         this.name = name;
         this.goldMedals = goldMedals;
         this.silverMedals = silverMedals;
@@ -62,8 +62,8 @@ public class Country {
         return goldMedals;
     }
 
-    public void setGoldMedal(Integer goldMedal) {
-        this.goldMedals = goldMedal;
+    public void setGoldMedals(Integer goldMedals) {
+        this.goldMedals = goldMedals;
     }
 
     public Integer getSilverMedals() {

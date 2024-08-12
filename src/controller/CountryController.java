@@ -154,6 +154,157 @@ public class CountryController {
         }
     }
 
+    public void resetAllMedals() {
+        for (Country c : countries) {
+            c.setGoldMedals(0);
+            c.setSilverMedals(0);
+            c.setBronzeMedals(0);
+            saveCountry();
+        }
+
+        System.out.println("All medals reseted.");
+        System.out.println("Updated country list: ");
+        listAllCountries();
+        System.out.println("-----");
+    }
+
+    public void resetCountryMedals(int id){
+        boolean countryFound = false;
+        for (Country c : countries) {
+            if (c.getIdCountry() == id) {
+                System.out.print("PLEASE, CONFIRM ALL " + c.getName() + "'s MEDALS RESET (y/n): ");
+                char countryAllReset = sc.next().charAt(0);
+                while (countryAllReset != 'y' && countryAllReset != 'Y' && countryAllReset != 'n' && countryAllReset != 'N') {
+                    System.out.print("PLEASE, CONFIRM ALL " + c.getName() + "'s MEDALS RESET (y/n): ");
+                    countryAllReset = sc.next().charAt(0);
+                }
+                switch (countryAllReset) {
+                    case 'y':
+                    case 'Y':
+                        c.setGoldMedals(0);
+                        c.setSilverMedals(0);
+                        c.setBronzeMedals(0);
+                        System.out.println(c.getName() + "'s medal(s) reseted.");
+                        saveCountry();
+                        System.out.println("-----");
+                        break;
+                    case 'n':
+                    case 'N':
+                        System.out.println(c.getName() + "'s MEDALS HAVE NOT BEEN RESET.");
+                        System.out.println("-----");
+                        break;
+                }
+                countryFound = true;
+            }
+        }
+
+        if (!countryFound) {
+            System.out.println("Country not found!");
+        }
+    }
+
+    public void resetCountryGoldMedals(int id) {
+        boolean countryFound = false;
+
+        for (Country c : countries) {
+            if (c.getIdCountry() == id) {
+                System.out.print("PLEASE, CONFIRM ALL " + c.getName() + "'s GOLD MEDALS RESET (y/n): ");
+                char countryGoldReset = sc.next().charAt(0);
+                while (countryGoldReset != 'y' && countryGoldReset != 'Y' && countryGoldReset != 'n' && countryGoldReset != 'N') {
+                    System.out.print("PLEASE, CONFIRM ALL " + c.getName() + "'s MEDALS RESET (y/n): ");
+                    countryGoldReset = sc.next().charAt(0);
+                }
+                switch (countryGoldReset) {
+                    case 'y':
+                    case 'Y':
+                        c.setGoldMedals(0);
+                        System.out.println(c.getName() + "'s Gold Medals reseted.");
+                        System.out.println("Updated " + c.getName() + " medals:\n" + c.getGoldMedals() + "|" + c.getSilverMedals() + "|" + c.getBronzeMedals());
+                        saveCountry();
+                        System.out.println("-----");
+                        break;
+                    case 'n':
+                    case 'N':
+                        System.out.println(c.getName() + "'s GOLD MEDALS HAVE NOT BEEN RESET.");
+                        System.out.println("-----");
+                        break;
+                }
+                countryFound = true;
+            }
+        }
+        if (!countryFound) {
+            System.out.println("Country not found.");
+        }
+    }
+
+    public void resetCountrySilverMedals(int id) {
+        boolean countryFound = false;
+
+        for (Country c : countries) {
+            if (c.getIdCountry() == id) {
+                System.out.print("PLEASE, CONFIRM ALL " + c.getName() + "'s SILVER MEDALS RESET (y/n): ");
+                char countrySilverReset = sc.next().charAt(0);
+                while (countrySilverReset != 'y' && countrySilverReset != 'Y' && countrySilverReset != 'n' && countrySilverReset != 'N') {
+                    System.out.print("PLEASE, CONFIRM ALL " + c.getName() + "'s SILVER MEDALS RESET (y/n): ");
+                    countrySilverReset = sc.next().charAt(0);
+                }
+                switch (countrySilverReset) {
+                    case 'y':
+                    case 'Y':
+                        c.setSilverMedals(0);
+                        System.out.println(c.getName() + "'s Silver Medals reseted.");
+                        System.out.println("Updated " + c.getName() + " medals:\n" + c.getGoldMedals() + "|" + c.getSilverMedals() + "|" + c.getBronzeMedals());
+                        saveCountry();
+                        System.out.println("-----");
+                        break;
+                    case 'n':
+                    case 'N':
+                        System.out.println(c.getName() + "'s SILVER MEDALS HAVE NOT BEEN RESET.");
+                        System.out.println("-----");
+                        break;
+                }
+                countryFound = true;
+            }
+        }
+        if (!countryFound) {
+            System.out.println("Country not found.");
+        }
+    }
+
+    public void resetCountryBronzeMedals(int id) {
+        boolean countryFound = false;
+
+        for (Country c : countries) {
+            if (c.getIdCountry() == id) {
+                System.out.print("PLEASE, CONFIRM ALL " + c.getName() + "'s SILVER MEDALS RESET (y/n): ");
+                char countryBronzeReset = sc.next().charAt(0);
+                while (countryBronzeReset != 'y' && countryBronzeReset != 'Y' && countryBronzeReset != 'n' && countryBronzeReset != 'N') {
+                    System.out.print("PLEASE, CONFIRM ALL " + c.getName() + "'s SILVER MEDALS RESET (y/n): ");
+                    countryBronzeReset = sc.next().charAt(0);
+                }
+                switch (countryBronzeReset) {
+                    case 'y':
+                    case 'Y':
+                        c.setBronzeMedals(0);
+                        System.out.println(c.getName() + "'s Bronze Medals reseted.");
+                        System.out.println("Updated " + c.getName() + " medals:\n" + c.getGoldMedals() + "|" + c.getSilverMedals() + "|" + c.getBronzeMedals());
+                        saveCountry();
+                        System.out.println("-----");
+                        break;
+                    case 'n':
+                    case 'N':
+                        System.out.println(c.getName() + "'s BRONZE MEDALS HAVE NOT BEEN RESET.");
+                        System.out.println("-----");
+                        break;
+                }
+                countryFound = true;
+            }
+        }
+        if (!countryFound) {
+            System.out.println("Country not found.");
+        }
+    }
+
     public List<Country> getCountries() {
         return countries;
     }
