@@ -1,6 +1,7 @@
 package controller;
 
 import entities.Country;
+import utils.Ranking;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -104,7 +105,7 @@ public class CountryController {
                 System.out.print("Gold Medals to " + c.getName() + ": ");
                 int medals = sc.nextInt();
                 c.addGoldMedal(medals);
-                System.out.println("Added " + medals + " Gold Medals to " + c.getName());
+                System.out.println("Added " + medals + " Gold Medal(s) to " + c.getName());
                 System.out.println("Updated " + c.getName() + " medals:\n" + c.getGoldMedals() + "|" + c.getSilverMedals() + "|" + c.getBronzeMedals());
                 saveCountry();
                 System.out.println("-----");
@@ -123,7 +124,7 @@ public class CountryController {
                 System.out.print("Silver Medals to " + c.getName() + ": ");
                 int medals = sc.nextInt();
                 c.addSilverMedal(medals);
-                System.out.println("Added " + medals + " Silver Medals to " + c.getName());
+                System.out.println("Added " + medals + " Silver Medal(s) to " + c.getName());
                 System.out.println("Updated " + c.getName() + " medals:\n" + c.getGoldMedals() + "|" + c.getSilverMedals() + "|" + c.getBronzeMedals());
                 saveCountry();
                 System.out.println("-----");
@@ -142,7 +143,7 @@ public class CountryController {
                 System.out.print("Bronze Medals to " + c.getName() + ": ");
                 int medals = sc.nextInt();
                 c.addBronzeMedal(medals);
-                System.out.println("Added " + medals + " Bronze Medals to " + c.getName());
+                System.out.println("Added " + medals + " Bronze Medal(s) to " + c.getName());
                 System.out.println("Updated " + c.getName() + " medals:\n" + c.getGoldMedals() + "|" + c.getSilverMedals() + "|" + c.getBronzeMedals());
                 saveCountry();
                 System.out.println("-----");
@@ -151,5 +152,14 @@ public class CountryController {
         if (!countryFound) {
             System.out.println("Country not found!");
         }
+    }
+
+    public List<Country> getCountries() {
+        return countries;
+    }
+
+    public void printRanking() {
+        Ranking ranking = new Ranking();
+        ranking.returnRanking(countries);
     }
 }

@@ -2,13 +2,14 @@ package controller;
 
 import entities.*;
 import controller.*;
+import utils.Ranking;
 
 import java.util.Scanner;
 
 public class Menu {
 
-    Classification rank = new Classification();
     CountryController cc = new CountryController();
+    Ranking rkg = new Ranking();
 
     Scanner sc = new Scanner(System.in);
 
@@ -28,6 +29,14 @@ public class Menu {
         System.out.print("Option: ");
     }
 
+    public void medalMenu() {
+        System.out.println("1 - Gold Medal");
+        System.out.println("2 - Silver Medal");
+        System.out.println("3 - Bronze Medal");
+        System.out.println("0 - Back");
+        System.out.print("Option: ");
+    }
+
     public void management(int option) {
         while(option != 0) {
             switch (option) {
@@ -41,10 +50,10 @@ public class Menu {
                             int id = sc.nextInt();
                             sc.nextLine();
 
-                            System.out.print("Country acronym: ");
-                            String countryAcro = sc.next(".{3}");
+                            System.out.print("Country name: ");
+                            String countryName = sc.nextLine();
 
-                            Country c = new Country(id, countryAcro);
+                            Country c = new Country(id, countryName);
                             cc.addCountry(c);
                             break;
 
@@ -54,42 +63,54 @@ public class Menu {
                             cc.removeCountry(id);
                             break;
                         case 3:
-                            System.out.println("1 - Gold Medal");
-                            System.out.println("2 - Silver Medal");
-                            System.out.println("3 - Bronze Medal");
-                            System.out.print("Option: ");
+                            medalMenu();
                             int medalOpt = sc.nextInt();
-                            switch (medalOpt){
-                                case 1:
-                                    System.out.print("Country ID: ");
-                                    id = sc.nextInt();
-                                    cc.addGoldMedal(id);
-                                    break;
-                                case 2:
-                                    System.out.print("Country ID: ");
-                                    id = sc.nextInt();
-                                    cc.addSilverMedal(id);
-                                    break;
-                                case 3:
-                                    System.out.print("Country ID: ");
-                                    id = sc.nextInt();
-                                    cc.addBronzeMedal(id);
-                                    break;
-                                default:
-                                    break;
+                            while (medalOpt != 0 || medalOpt != 0 || medalOpt != 0) {
+                                switch (medalOpt){
+                                    case 1:
+                                        System.out.print("Country ID: ");
+                                        id = sc.nextInt();
+                                        cc.addGoldMedal(id);
+                                        break;
+                                    case 2:
+                                        System.out.print("Country ID: ");
+                                        id = sc.nextInt();
+                                        cc.addSilverMedal(id);
+                                        break;
+                                    case 3:
+                                        System.out.print("Country ID: ");
+                                        id = sc.nextInt();
+                                        cc.addBronzeMedal(id);
+                                        break;
+                                    default:
+                                        System.out.println("Invalid medal option. Please choose a valid medal option.");
+                                        medalMenu();
+                                        medalOpt = sc.nextInt();
+                                        System.out.println("-----");
+                                        break;
+                                }
+                                medalMenu();
+                                medalOpt = sc.nextInt();
+                                System.out.println("-----");
                             }
-
                             break;
                         default:
+                            System.out.println("Invalid option. Please choose a valid option.");
+                            countryManagementMenu();
+                            countryManageOpt = sc.nextInt();
                             break;
                     }
                     break;
                 case 2:
+                    cc.printRanking();
                     break;
                 case 3:
                     cc.listAllCountries();
                     break;
                 default:
+                    System.out.println("Invalid option. Please choose a valid option.");
+                    mainMenu();
+                    option = sc.nextInt();
                     break;
             }
             System.out.println("-----");
