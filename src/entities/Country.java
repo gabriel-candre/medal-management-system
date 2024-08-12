@@ -7,6 +7,7 @@ public class Country {
     private Integer goldMedals;
     private Integer silverMedals;
     private Integer bronzeMedals;
+    private Integer totalMedals;
     private Integer rankingPosition;
 
     public Country() {
@@ -20,11 +21,12 @@ public class Country {
         this.silverMedals = 0;
         this.bronzeMedals = 0;
         this.rankingPosition = 0;
+        this.totalMedals = this.goldMedals + this.silverMedals + this.bronzeMedals;
     }
 
-    public Country(int id,int rankingPosition, String name, int goldMedals, int silverMedals, int bronzeMedals) {
+    public Country(int id,int totalMedals, String name, int goldMedals, int silverMedals, int bronzeMedals) {
         this.idCountry = id;
-        this.rankingPosition = rankingPosition;
+        this.totalMedals = this.goldMedals + this.silverMedals + this.bronzeMedals;
         this.name = name;
         this.goldMedals = goldMedals;
         this.silverMedals = silverMedals;
@@ -80,28 +82,39 @@ public class Country {
         this.bronzeMedals = bronzeMedals;
     }
 
+    public int getTotalMedals() {
+        return totalMedals;
+    }
+
+    public void setTotalMedals(int medals) {
+        this.totalMedals = medals;
+    }
+
     public Integer getRankingPosition() {
         return rankingPosition;
     }
 
-    public void setRankingPosition(Integer rankingPosition) {
+    public void setRankingPosition(int rankingPosition) {
         this.rankingPosition = rankingPosition;
     }
 
     public void addGoldMedal(int qty) {
         this.goldMedals += qty;
+        this.totalMedals += qty;
     }
 
     public void addSilverMedal(int qty) {
         this.silverMedals += qty;
+        this.totalMedals += qty;
     }
 
     public void addBronzeMedal(int qty) {
         this.bronzeMedals += qty;
+        this.totalMedals += qty;
     }
 
     public String toFile() {
-        return getIdCountry() + ";" + getName() + ";" + getGoldMedals() + ";" + getSilverMedals() + ";" + getBronzeMedals() + ";" + getRankingPosition();
+        return getIdCountry() + ";" + getName() + ";" + getGoldMedals() + ";" + getSilverMedals() + ";" + getBronzeMedals() + ";" + getTotalMedals();
     }
 
     public static Country fromFile(String fileString) {
@@ -111,8 +124,8 @@ public class Country {
         int goldMedals = Integer.parseInt(fields[2]);
         int silverMedals = Integer.parseInt(fields[3]);
         int bronzeMedals = Integer.parseInt(fields[4]);
-        int position = Integer.parseInt(fields[5]);
-        return new Country(id, position, name, goldMedals, silverMedals, bronzeMedals);
+        int totalMedals = Integer.parseInt(fields[5]);
+        return new Country(id, totalMedals, name, goldMedals, silverMedals, bronzeMedals);
     }
 
     @Override
