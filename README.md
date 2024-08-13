@@ -22,7 +22,7 @@ This is a Java-based Medal Management System that allows users to manage and vie
 
 ## Setup
 1. Clone the Repository
-   - git clone https://github.com/your-repository/medal-management-system.git
+   - git clone [https://github.com/your-repository/medal-management-system.git](https://github.com/gabriel-candre/medal-management-system.git)
 
 2. Navigate to the Project repository
    - cd medal-management-system
