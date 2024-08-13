@@ -1,4 +1,4 @@
-# Medal Management System
+# Medal Management System v1.0
 This is a Java-based Medal Management System that allows users to manage and view the medal standings of various countries. The system supports functionalities such as adding or removing countries, updating medals, resetting medals, and displaying rankings.
 
 ## Table of Contents
