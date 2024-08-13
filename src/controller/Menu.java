@@ -56,8 +56,6 @@ public class Menu {
                     int countryManageOpt = sc.nextInt();
                     System.out.println("-----");
                     while (countryManageOpt != 0) {
-
-
                     switch (countryManageOpt) {
                         case 1:
                             System.out.print("Country ID: ");
@@ -69,6 +67,7 @@ public class Menu {
 
                             Country c = new Country(id, countryName);
                             cc.addCountry(c);
+                            System.out.println("-----");
                             break;
 
                         case 2:
@@ -170,6 +169,7 @@ public class Menu {
                     }
                         countryManagementMenu();
                         countryManageOpt = sc.nextInt();
+                        System.out.println("-----");
                     }
                     break;
                 case 2:

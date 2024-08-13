@@ -39,10 +39,10 @@ public class Ranking {
             }
         });
 
-        System.out.printf("%-5s %-20s %-10s %-10s %-10s %-10s\n", "Pos", "Country", "Gold", "Silver", "Bronze", "Total");
+        System.out.printf("%s\n%-5s %-20s %-10s %-10s %-10s %-10s\n%s\n", "--------------------------------------------------------------------","Pos", "Country", "Gold", "Silver", "Bronze", "Total", "--------------------------------------------------------------------");
 
         for (Country c : countries) {
-            System.out.printf("%-5d %-20s %-10d %-10d %-10d %-10d\n", countries.indexOf(c) + 1, c.getName(), c.getGoldMedals(), c.getSilverMedals(), c.getBronzeMedals(), c.getTotalMedals());
+            System.out.printf("%-5d %-20s %-10d %-10d %-10d %-10d\n%s\n", countries.indexOf(c) + 1, c.getName(), c.getGoldMedals(), c.getSilverMedals(), c.getBronzeMedals(), c.getTotalMedals(), "--------------------------------------------------------------------");
         }
     }
 
