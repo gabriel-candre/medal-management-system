@@ -25,7 +25,7 @@ public class Menu {
         System.out.println("1 - Add country");
         System.out.println("2 - Remove country");
         System.out.println("3 - Manage medals");
-        System.out.println("0 - Cancel");
+        System.out.println("0 - Back");
         System.out.print("Option: ");
     }
 
@@ -55,6 +55,9 @@ public class Menu {
                     countryManagementMenu();
                     int countryManageOpt = sc.nextInt();
                     System.out.println("-----");
+                    while (countryManageOpt != 0) {
+
+
                     switch (countryManageOpt) {
                         case 1:
                             System.out.print("Country ID: ");
@@ -165,12 +168,17 @@ public class Menu {
                             countryManageOpt = sc.nextInt();
                             break;
                     }
+                        countryManagementMenu();
+                        countryManageOpt = sc.nextInt();
+                    }
                     break;
                 case 2:
                     cc.printRanking();
+                    System.out.println("-----");
                     break;
                 case 3:
                     cc.listAllCountries();
+                    System.out.println("-----");
                     break;
                 default:
                     System.out.println("Invalid option. Please choose a valid option.");
@@ -178,7 +186,6 @@ public class Menu {
                     option = sc.nextInt();
                     break;
             }
-            System.out.println("-----");
             mainMenu();
             option = sc.nextInt();
             System.out.println("-----");
