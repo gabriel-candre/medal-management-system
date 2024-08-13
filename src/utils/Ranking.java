@@ -39,11 +39,28 @@ public class Ranking {
             }
         });
 
-        System.out.printf("%s\n%-5s %-20s %-10s %-10s %-10s %-10s\n%s\n", "--------------------------------------------------------------------","Pos", "Country", "Gold", "Silver", "Bronze", "Total", "--------------------------------------------------------------------");
+        int col1Width = 5;  // Largura para a coluna de posição
+        int col2Width = 20; // Largura para a coluna de país
+        int col3Width = 10; // Largura para a coluna de medalhas de ouro
+        int col4Width = 10; // Largura para a coluna de medalhas de prata
+        int col5Width = 10; // Largura para a coluna de medalhas de bronze
+        int col6Width = 10; // Largura para a coluna de total de medalhas
 
-        for (Country c : countries) {
-            System.out.printf("%-5d %-20s %-10d %-10d %-10d %-10d\n%s\n", countries.indexOf(c) + 1, c.getName(), c.getGoldMedals(), c.getSilverMedals(), c.getBronzeMedals(), c.getTotalMedals(), "--------------------------------------------------------------------");
+        System.out.printf("+-%" + col1Width + "s-+-%" + col2Width + "s-+-%" + col3Width + "s-+-%" + col4Width + "s-+-%" + col5Width + "s-+-%" + col6Width + "s-+\n",
+                "", "", "", "", "", "");
+        System.out.printf("| %-" + col1Width + "s | %-" + col2Width + "s | %-" + col3Width + "s | %-" + col4Width + "s | %-" + col5Width + "s | %-" + col6Width + "s |\n",
+                "Pos", "Country", "Gold", "Silver", "Bronze", "Total");
+        System.out.printf("+-%" + col1Width + "s-+-%" + col2Width + "s-+-%" + col3Width + "s-+-%" + col4Width + "s-+-%" + col5Width + "s-+-%" + col6Width + "s-+\n",
+                "", "", "", "", "", "");
+
+        for (int i = 0; i < countries.size(); i++) {
+            Country c = countries.get(i);
+            System.out.printf("| %-" + col1Width + "d | %-" + col2Width + "s | %-" + col3Width + "d | %-" + col4Width + "d | %-" + col5Width + "d | %-" + col6Width + "d |\n",
+                    i + 1, c.getName(), c.getGoldMedals(), c.getSilverMedals(), c.getBronzeMedals(), c.getTotalMedals());
         }
+
+        System.out.printf("+-%" + col1Width + "s-+-%" + col2Width + "s-+-%" + col3Width + "s-+-%" + col4Width + "s-+-%" + col5Width + "s-+-%" + col6Width + "s-+\n",
+                "", "", "", "", "", "");
     }
 
 }
